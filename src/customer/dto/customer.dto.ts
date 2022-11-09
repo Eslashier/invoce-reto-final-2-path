@@ -1,0 +1,19 @@
+import { IsEmail, IsString, Length } from 'class-validator';
+import { Customer } from '../entities/customer.entity';
+
+export class CustomerDto implements Customer {
+  @IsString()
+  @Length(2, 50)
+  name: string;
+  @IsString()
+  @Length(2, 50)
+  lastName: string;
+  @IsString()
+  @Length(6, 10)
+  passport: string;
+  @IsString()
+  @Length(10, 10)
+  phoneNumber: string;
+  @IsEmail()
+  email: string;
+}
