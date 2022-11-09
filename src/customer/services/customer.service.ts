@@ -64,7 +64,7 @@ export class CustomerService {
   }
 
   // eslint-disable-next-line prettier/prettier
-  patchCustomer(uuid: string, customer: CustomerDto | CustomerPatchDto): CustomerDto {
+  patchCustomer(uuid: string, customer: CustomerDto | CustomerPatchDto): Customer {
     if (this.customers.find((customer) => customer.uuid === uuid)) {
       const index = this.customers.findIndex(
         (customer) => customer.uuid === uuid

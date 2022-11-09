@@ -28,19 +28,19 @@ export class CustomerController {
   }
 
   @Post()
-  addCustomer(@Body() body: CustomerDto): CustomerDto {
+  addCustomer(@Body() body: CustomerDto): Customer {
     return this.customerService.addCustomer(body);
   }
 
   @Put(`/:uuid`)
   // eslint-disable-next-line prettier/prettier
-  putCustomer(@Param('uuid') uuid: string, @Body() body: CustomerDto): CustomerDto | undefined {
+  putCustomer(@Param('uuid') uuid: string, @Body() body: CustomerDto): Customer | undefined {
     return this.customerService.putCustomer(uuid, body);
   }
 
   @Patch(`/:uuid`)
   // eslint-disable-next-line prettier/prettier
-  patchCustomer(@Param('uuid') uuid: string, @Body() body: CustomerPatchDto): CustomerDto | undefined {
+  patchCustomer(@Param('uuid') uuid: string, @Body() body: CustomerPatchDto): Customer | undefined {
     return this.customerService.patchCustomer(uuid, body);
   }
 

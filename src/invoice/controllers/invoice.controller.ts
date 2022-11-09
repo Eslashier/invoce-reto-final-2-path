@@ -11,6 +11,7 @@ import {
 } from '@nestjs/common';
 import { InvoicePatchDto } from '../dto/invoice-patch.dto';
 import { InvoiceDto } from '../dto/invoice.dto';
+import { Invoice } from '../entities/invoice.entity';
 import { InvoiceService } from '../services/invoice.service';
 
 @Controller('invoice')
@@ -23,24 +24,24 @@ export class InvoiceController {
   }
 
   @Get(`/:uuid`)
-  getInvoice(@Param('uuid') uuid: string): InvoiceDto | undefined {
+  getInvoice(@Param('uuid') uuid: string): Invoice | undefined {
     return this.invoiceService.getInvoice(uuid);
   }
 
   @Post()
-  addInvoice(@Body() body: InvoiceDto): InvoiceDto {
+  addInvoice(@Body() body: InvoiceDto): Invoice {
     return this.invoiceService.addInvoice(body);
   }
 
   @Put(`/:uuid`)
   // eslint-disable-next-line prettier/prettier
-  putInvoice(@Param('uuid') uuid: string, @Body() body: InvoiceDto): InvoiceDto | undefined {
+  putInvoice(@Param('uuid') uuid: string, @Body() body: InvoiceDto): Invoice | undefined {
     return this.invoiceService.putInvoice(uuid, body);
   }
 
   @Patch(`/:uuid`)
   // eslint-disable-next-line prettier/prettier
-  patchInvoice(@Param('uuid') uuid: string, @Body() body: InvoicePatchDto): InvoiceDto | undefined {
+  patchInvoice(@Param('uuid') uuid: string, @Body() body: InvoicePatchDto): Invoice | undefined {
     return this.invoiceService.patchInvoice(uuid, body);
   }
 

@@ -84,7 +84,7 @@ export class InvoiceService {
   }
 
   // eslint-disable-next-line prettier/prettier
-  patchInvoice(uuid: string, invoice: InvoiceDto | InvoicePatchDto): InvoiceDto {
+  patchInvoice(uuid: string, invoice: InvoiceDto | InvoicePatchDto): Invoice {
     if (this.invoices.find((invoice) => invoice.uuid === uuid)) {
       const index = this.invoices.findIndex((invoice) => invoice.uuid === uuid);
       const invoiceToUpdate = { ...this.invoices[index], ...invoice };
