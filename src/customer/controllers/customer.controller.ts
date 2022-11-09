@@ -6,8 +6,7 @@ import {
   Param,
   Patch,
   Post,
-  Put,
-  ValidationPipe
+  Put
 } from '@nestjs/common';
 import { CustomerPatchDto } from '../dto/customer-patch.dto';
 import { CustomerDto } from '../dto/customer.dto';

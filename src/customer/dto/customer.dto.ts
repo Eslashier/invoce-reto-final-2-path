@@ -1,7 +1,5 @@
 import { IsEmail, IsString, Length } from 'class-validator';
-import { Customer } from '../entities/customer.entity';
-
-export class CustomerDto implements Customer {
+export class CustomerDto {
   @IsString()
   @Length(2, 50)
   name: string;

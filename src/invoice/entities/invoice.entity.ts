@@ -1,8 +1,9 @@
+import { InvoiceDetail } from './invoiceDetail.entity';
+
 export class Invoice {
   uuid: string;
-  date: string;
-  customer: string;
-  idNumber: string;
-  phoneNumber: string;
-  email: string;
+  customerUuid: string;
+  date?: string;
+  invoiceDetail: InvoiceDetail[];
+  total: number;
 }

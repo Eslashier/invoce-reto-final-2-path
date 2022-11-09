@@ -35,8 +35,7 @@ export class CustomerService {
   getCustomers(): Customer[] {
     return this.customers;
   }
-
-  getCustomer(uuid: string): CustomerDto | undefined {
+  getCustomer(uuid: string): Customer | undefined {
     if (this.customers.find((customer) => customer.uuid === uuid)) {
       return this.customers.find((customer) => customer.uuid === uuid);
     }
