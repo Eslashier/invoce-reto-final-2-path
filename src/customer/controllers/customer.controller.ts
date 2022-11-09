@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { CustomerPatchDto } from '../dto/customer-patch.dto';
 import { CustomerDto } from '../dto/customer.dto';
+import { Customer } from '../entities/customer.entity';
 import { CustomerService } from '../services/customer.service';
 
 @Controller('customer')
@@ -22,7 +23,7 @@ export class CustomerController {
   }
 
   @Get(`/:uuid`)
-  getCustomer(@Param('uuid') uuid: string): CustomerDto | undefined {
+  getCustomer(@Param('uuid') uuid: string): Customer | undefined {
     return this.customerService.getCustomer(uuid);
   }
 
