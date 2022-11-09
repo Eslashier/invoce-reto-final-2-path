@@ -28,20 +28,19 @@ export class CustomerController {
   }
 
   @Post()
-  // eslint-disable-next-line prettier/prettier
-  addCustomer(@Body(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })) body: CustomerDto): CustomerDto {
+  addCustomer(@Body() body: CustomerDto): CustomerDto {
     return this.customerService.addCustomer(body);
   }
 
   @Put(`/:uuid`)
   // eslint-disable-next-line prettier/prettier
-  putCustomer(@Param('uuid') uuid: string, @Body(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })) body: CustomerDto): CustomerDto | undefined {
+  putCustomer(@Param('uuid') uuid: string, @Body() body: CustomerDto): CustomerDto | undefined {
     return this.customerService.putCustomer(uuid, body);
   }
 
   @Patch(`/:uuid`)
   // eslint-disable-next-line prettier/prettier
-  patchCustomer(@Param('uuid') uuid: string, @Body(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })) body: CustomerPatchDto): CustomerDto | undefined {
+  patchCustomer(@Param('uuid') uuid: string, @Body() body: CustomerPatchDto): CustomerDto | undefined {
     return this.customerService.patchCustomer(uuid, body);
   }
 
