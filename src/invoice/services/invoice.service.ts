@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { v4 as uuidGen } from 'uuid';
 import { InvoicePatchDto } from '../dto/invoice-patch.dto';
 import { InvoiceDto } from '../dto/invoice.dto';
-import { Invoice } from '../entities/invoice.entity';
+import { Invoice } from '../interfaces/invoice.entity';
 @Injectable()
 export class InvoiceService {
   invoices: Invoice[] = [

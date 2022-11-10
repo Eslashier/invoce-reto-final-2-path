@@ -1,5 +1,5 @@
 import { IsEmail, IsString, Length } from 'class-validator';
-import { CustomerPutInterface } from '../entities/customer-put.interface';
+import { CustomerPutInterface } from '../interfaces/customer-put.interface';
 
 export class CustomerDto implements CustomerPutInterface {
   @IsString({

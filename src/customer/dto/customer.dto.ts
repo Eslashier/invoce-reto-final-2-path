@@ -1,5 +1,5 @@
 import { IsEmail, IsString, IsUUID, Length } from 'class-validator';
-import { CustomerInterface } from '../entities/customer.interface';
+import { CustomerInterface } from '../interfaces/customer.interface';
 export class CustomerDto implements CustomerInterface {
   @IsUUID()
   uuid: string;

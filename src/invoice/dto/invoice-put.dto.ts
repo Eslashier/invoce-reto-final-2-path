@@ -7,12 +7,12 @@ import {
   IsUUID,
   ValidateNested
 } from 'class-validator';
-import { InvoicePatchInterface } from '../interfaces/invoice-patch.entity';
+import { InvoicePutInterface } from '../interfaces/invoice-put.entity';
 import { InvoiceDetailDto } from './invoiceDetail.dto';
 
-export class InvoicePatchDto implements InvoicePatchInterface {
+export class InvoicePutDto implements InvoicePutInterface {
   @IsUUID()
-  customerUuid?: string;
+  customerUuid: string;
 
   @IsString()
   date?: string;
@@ -20,9 +20,9 @@ export class InvoicePatchDto implements InvoicePatchInterface {
   @IsArray()
   @ValidateNested()
   @Type(() => InvoiceDetailDto)
-  invoiceDetail?: InvoiceDetailDto[];
+  invoiceDetail: InvoiceDetailDto[];
 
   @IsNumber()
   @IsNotEmpty()
-  total?: number;
+  total: number;
 }

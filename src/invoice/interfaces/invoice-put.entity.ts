@@ -1,7 +1,6 @@
-import { InvoiceDetail } from './invoiceDetail.entity';
+import { InvoiceDetail } from './invoiceDetail.interface';
 
-export class Invoice {
-  uuid: string;
+export class InvoicePutInterface {
   customerUuid: string;
   date?: string;
   invoiceDetail: InvoiceDetail[];

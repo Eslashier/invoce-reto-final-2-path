@@ -1,4 +1,4 @@
-export class InvoiceDetail {
+export interface InvoiceDetail {
   uuid?: string;
   name: string;
   description: string;

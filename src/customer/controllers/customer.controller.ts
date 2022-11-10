@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { CustomerPatchDto } from '../dto/customer-patch.dto';
 import { CustomerDto } from '../dto/customer.dto';
-import { Customer } from '../entities/customer.interface';
+import { Customer } from '../interfaces/customer.interface';
 import { CustomerService } from '../services/customer.service';
 
 @Controller('customer')

@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CustomerDto } from '../dto/customer.dto';
 import { CustomerPatchDto } from '../dto/customer-patch.dto';
 import { v4 as uuidGen } from 'uuid';
-import { Customer } from '../entities/customer.interface';
+import { Customer } from '../interfaces/customer.interface';
 @Injectable()
 export class CustomerService {
   private customers: Customer[] = [

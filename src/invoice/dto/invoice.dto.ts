@@ -4,15 +4,21 @@ import {
   IsNotEmpty,
   IsNumber,
   IsString,
-  Length,
+  IsUUID,
   ValidateNested
 } from 'class-validator';
+import { InvoiceInterface } from '../interfaces/invoice.entity';
 import { InvoiceDetailDto } from './invoiceDetail.dto';
 
-export class InvoiceDto {
-  @IsString()
-  @Length(36, 36)
+export class InvoiceDto implements InvoiceInterface {
+  @IsUUID()
+  uuid: string;
+
+  @IsUUID()
   customerUuid: string;
+
+  @IsString()
+  date?: string;
 
   @IsArray()
   @ValidateNested()

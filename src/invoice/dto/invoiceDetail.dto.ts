@@ -1,11 +1,16 @@
 import { IsNumber, IsString, IsUUID, Max, Min } from 'class-validator';
+import { InvoiceDetail } from '../interfaces/invoiceDetail.interface';
 
-export class InvoiceDetailDto {
+export class InvoiceDetailDto implements InvoiceDetail {
   @IsUUID()
   uuid?: string;
-  @IsString()
+  @IsString({
+    message: 'name should be a string'
+  })
   name: string;
-  @IsString()
+  @IsString({
+    message: 'description should be a string'
+  })
   description: string;
   @IsNumber()
   @Min(50)

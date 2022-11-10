@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 import { InvoicePatchDto } from '../dto/invoice-patch.dto';
 import { InvoiceDto } from '../dto/invoice.dto';
-import { Invoice } from '../entities/invoice.entity';
+import { Invoice } from '../interfaces/invoice.entity';
 import { InvoiceService } from '../services/invoice.service';
 
 @Controller('invoice')
