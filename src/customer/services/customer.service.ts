@@ -2,10 +2,11 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CustomerDto } from '../dto/customer.dto';
 import { CustomerPatchDto } from '../dto/customer-patch.dto';
 import { v4 as uuidGen } from 'uuid';
-import { Customer } from '../interfaces/customer.interface';
+import { CustomerInterface } from '../interfaces/customer.interface';
+import { CustomerPutDto } from '../dto/customer-put.dto';
 @Injectable()
 export class CustomerService {
-  private customers: Customer[] = [
+  private customers: CustomerInterface[] = [
     {
       uuid: '1',
       name: 'Juan Pablo',
@@ -32,30 +33,30 @@ export class CustomerService {
     }
   ];
 
-  getCustomers(): Customer[] {
+  getCustomers(): CustomerDto[] {
     return this.customers;
   }
-  getCustomer(uuid: string): Customer | undefined {
+  getCustomer(uuid: string): CustomerDto | undefined {
     if (this.customers.find((customer) => customer.uuid === uuid)) {
       return this.customers.find((customer) => customer.uuid === uuid);
     }
     throw new NotFoundException('Customer not found');
   }
 
-  addCustomer(customer: CustomerDto): Customer {
-    let customerToCreate = new Customer();
+  addCustomer(customer: CustomerPutDto): CustomerDto {
+    let customerToCreate = new CustomerDto();
     const uuid: string = uuidGen();
     customerToCreate = { uuid, ...customer };
     this.customers = [...this.customers, customerToCreate];
     return customerToCreate;
   }
 
-  putCustomer(uuid: string, customer: CustomerDto): Customer | undefined {
+  putCustomer(uuid: string, customer: CustomerPutDto): CustomerDto | undefined {
     if (this.customers.find((customer) => customer.uuid === uuid)) {
       const index = this.customers.findIndex(
         (customer) => customer.uuid === uuid
       );
-      let customerToUpdate = new Customer();
+      let customerToUpdate = new CustomerDto();
       customerToUpdate = { uuid, ...customer };
       this.customers[index] = customerToUpdate;
       return this.customers[index];
@@ -64,7 +65,7 @@ export class CustomerService {
   }
 
   // eslint-disable-next-line prettier/prettier
-  patchCustomer(uuid: string, customer: CustomerDto | CustomerPatchDto): Customer {
+  patchCustomer(uuid: string, customer: CustomerPatchDto): CustomerDto | undefined {
     if (this.customers.find((customer) => customer.uuid === uuid)) {
       const index = this.customers.findIndex(
         (customer) => customer.uuid === uuid

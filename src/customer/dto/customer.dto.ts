@@ -12,7 +12,7 @@ export class CustomerDto implements CustomerInterface {
     message: 'Lastname should be a string'
   })
   @Length(2, 50)
-  lastName: string;
+  lastName?: string;
   @IsString({
     message: 'Passport should be a string'
   })

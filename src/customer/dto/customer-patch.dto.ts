@@ -1,7 +1,7 @@
 import { IsEmail, IsString, Length } from 'class-validator';
 import { CustomerPatchInterface } from '../interfaces/customer-patch.interface';
 
-export class CustomerDto implements CustomerPatchInterface {
+export class CustomerPatchDto implements CustomerPatchInterface {
   @IsString({
     message: 'Name should be a string'
   })

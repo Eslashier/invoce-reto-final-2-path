@@ -54,7 +54,7 @@ export class InvoiceService {
     }
   ];
 
-  getInvoices(): InvoiceInterface[] {
+  getInvoices(): InvoiceDto[] {
     return this.invoices;
   }
   getInvoice(uuid: string): InvoiceDto | undefined {
