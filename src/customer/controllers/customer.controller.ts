@@ -6,8 +6,10 @@ import {
   Param,
   Patch,
   Post,
-  Put
+  Put,
+  UseGuards
 } from '@nestjs/common';
+import { AuthorizationGuard } from 'src/guard/authorization.guard';
 import { CustomerPatchDto } from '../dto/customer-patch.dto';
 import { CustomerDto } from '../dto/customer.dto';
 import { Customer } from '../interfaces/customer.interface';
@@ -28,23 +30,27 @@ export class CustomerController {
   }
 
   @Post()
+  @UseGuards(AuthorizationGuard)
   addCustomer(@Body() body: CustomerDto): Customer {
     return this.customerService.addCustomer(body);
   }
 
   @Put(`/:uuid`)
+  @UseGuards(AuthorizationGuard)
   // eslint-disable-next-line prettier/prettier
   putCustomer(@Param('uuid') uuid: string, @Body() body: CustomerDto): Customer | undefined {
     return this.customerService.putCustomer(uuid, body);
   }
 
   @Patch(`/:uuid`)
+  @UseGuards(AuthorizationGuard)
   // eslint-disable-next-line prettier/prettier
   patchCustomer(@Param('uuid') uuid: string, @Body() body: CustomerPatchDto): Customer | undefined {
     return this.customerService.patchCustomer(uuid, body);
   }
 
   @Delete(`/:uuid`)
+  @UseGuards(AuthorizationGuard)
   deleteCustomer(@Param('uuid') uuid: string) {
     return this.customerService.deleteCustomer(uuid);
   }

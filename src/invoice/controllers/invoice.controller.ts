@@ -7,8 +7,10 @@ import {
   Param,
   Patch,
   Post,
-  Put
+  Put,
+  UseGuards
 } from '@nestjs/common';
+import { AuthorizationGuard } from 'src/guard/authorization.guard';
 import { InvoicePatchDto } from '../dto/invoice-patch.dto';
 import { InvoiceDto } from '../dto/invoice.dto';
 import { Invoice } from '../interfaces/invoice.entity';
@@ -29,23 +31,27 @@ export class InvoiceController {
   }
 
   @Post()
+  @UseGuards(AuthorizationGuard)
   addInvoice(@Body() body: InvoiceDto): Invoice {
     return this.invoiceService.addInvoice(body);
   }
 
   @Put(`/:uuid`)
+  @UseGuards(AuthorizationGuard)
   // eslint-disable-next-line prettier/prettier
   putInvoice(@Param('uuid') uuid: string, @Body() body: InvoiceDto): Invoice | undefined {
     return this.invoiceService.putInvoice(uuid, body);
   }
 
   @Patch(`/:uuid`)
+  @UseGuards(AuthorizationGuard)
   // eslint-disable-next-line prettier/prettier
   patchInvoice(@Param('uuid') uuid: string, @Body() body: InvoicePatchDto): Invoice | undefined {
     return this.invoiceService.patchInvoice(uuid, body);
   }
 
   @Delete(`/:uuid`)
+  @UseGuards(AuthorizationGuard)
   deleteInvoice(@Param('uuid') uuid: string) {
     return this.invoiceService.deleteInvoice(uuid);
   }
