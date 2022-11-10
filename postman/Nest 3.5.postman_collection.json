@@ -1,0 +1,396 @@
+{
+	"info": {
+		"_postman_id": "489230b1-8762-4489-af64-5ec39aa14415",
+		"name": "Nest 3.5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17781175"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Get Customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/customer",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/customer/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customer",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "99e4c497d8b4c049ce41e71ff04055adc01714bccdf2f901e4c1d16ffabcef571398fa2b416ddc1037a98c4040c2f277c1bbb2dbc647ed65a2acaf657ac229ec",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Max\",\r\n    \"lastName\": \"Verstappen\",\r\n    \"passport\": \"12345678\",\r\n    \"phoneNumber\": \"3301231234\",\r\n    \"email\": \"supermax@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/customer",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "99e4c497d8b4c049ce41e71ff04055adc01714bccdf2f901e4c1d16ffabcef571398fa2b416ddc1037a98c4040c2f277c1bbb2dbc647ed65a2acaf657ac229ec",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Max\",\r\n    \"lastName\": \"Verstappen\",\r\n    \"phoneNumber\": \"3301231235\",\r\n    \"passport\": \"1234567\",\r\n    \"email\": \"supermax@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/customer/b0cf6f92-bc1e-480b-b6b8-2a830cf1e91b",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customer",
+								"b0cf6f92-bc1e-480b-b6b8-2a830cf1e91b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "99e4c497d8b4c049ce41e71ff04055adc01714bccdf2f901e4c1d16ffabcef571398fa2b416ddc1037a98c4040c2f277c1bbb2dbc647ed65a2acaf657ac229ec",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"patch@fake.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/customer/f75cbe85-75da-45c5-9f62-ab22f63b1680",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customer",
+								"f75cbe85-75da-45c5-9f62-ab22f63b1680"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "99e4c497d8b4c049ce41e71ff04055adc01714bccdf2f901e4c1d16ffabcef571398fa2b416ddc1037a98c4040c2f277c1bbb2dbc647ed65a2acaf657ac229ec",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuarioUuid\": \"50\",\r\n    \"tarea\": \"Crear un put\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/customer/f75cbe85-75da-45c5-9f62-ab22f63b1680",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customer",
+								"f75cbe85-75da-45c5-9f62-ab22f63b1680"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoice",
+			"item": [
+				{
+					"name": "Get Invoice",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/invoice",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"invoice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Invoice",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/invoice/cb911935-b87b-4fca-ac2b-512ff4bc5b1f",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"invoice",
+								"cb911935-b87b-4fca-ac2b-512ff4bc5b1f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Invoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "99e4c497d8b4c049ce41e71ff04055adc01714bccdf2f901e4c1d16ffabcef571398fa2b416ddc1037a98c4040c2f277c1bbb2dbc647ed65a2acaf657ac229ec",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerUuid\": \"cb911935-b87b-4fca-ac2b-512ff4bc5b1f\",\r\n    \"invoiceDetail\": [\r\n        {\r\n            \"uuid\": \"c4d2d373-9362-4989-b693-19d9fc0f2ce4\",\r\n            \"name\": \"Queso crema\",\r\n            \"description\": \"Queso crema 200g\",\r\n            \"price\": 8000,\r\n            \"quantity\": 1\r\n        }\r\n    ],\r\n    \"total\": 10000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/invoice",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"invoice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Invoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "99e4c497d8b4c049ce41e71ff04055adc01714bccdf2f901e4c1d16ffabcef571398fa2b416ddc1037a98c4040c2f277c1bbb2dbc647ed65a2acaf657ac229ec",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerUuid\": \"a4eccc2e-7b4e-41c7-b6fb-f4ad472f33a1\",\r\n    \"invoiceDetail\": [\r\n        {\r\n            \"uuid\": \"c4d2d373-9362-4989-b693-19d9fc0f2ce4\",\r\n            \"name\": \"Queso crema\",\r\n            \"description\": \"Queso crema 200g\",\r\n            \"price\": 10000,\r\n            \"quantity\": 1\r\n        }\r\n    ],\r\n    \"total\": 10000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/invoice/e95fd966-d685-431a-8885-36e753c5ce95",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"invoice",
+								"e95fd966-d685-431a-8885-36e753c5ce95"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch Invoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "99e4c497d8b4c049ce41e71ff04055adc01714bccdf2f901e4c1d16ffabcef571398fa2b416ddc1037a98c4040c2f277c1bbb2dbc647ed65a2acaf657ac229ec",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"total\": 10000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/invoice/e95fd966-d685-431a-8885-36e753c5ce95",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"invoice",
+								"e95fd966-d685-431a-8885-36e753c5ce95"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Invoioce",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "99e4c497d8b4c049ce41e71ff04055adc01714bccdf2f901e4c1d16ffabcef571398fa2b416ddc1037a98c4040c2f277c1bbb2dbc647ed65a2acaf657ac229ec",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usuarioUuid\": \"50\",\r\n    \"tarea\": \"Crear un put\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/invoice/e95fd966-d685-431a-8885-36e753c5ce95",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"invoice",
+								"e95fd966-d685-431a-8885-36e753c5ce95"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
