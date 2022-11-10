@@ -1,4 +1,4 @@
-export interface CustomerInterface {
+export interface CustomerPutInterface {
   name: string;
   lastName?: string;
   passport: string;

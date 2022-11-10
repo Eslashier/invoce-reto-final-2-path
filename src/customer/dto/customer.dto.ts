@@ -1,17 +1,32 @@
-import { IsEmail, IsString, Length } from 'class-validator';
-export class CustomerDto {
-  @IsString()
+import { IsEmail, IsString, IsUUID, Length } from 'class-validator';
+import { CustomerInterface } from '../entities/customer.interface';
+export class CustomerDto implements CustomerInterface {
+  @IsUUID()
+  uuid: string;
+  @IsString({
+    message: 'Name should be a string'
+  })
   @Length(2, 50)
   name: string;
-  @IsString()
+  @IsString({
+    message: 'Lastname should be a string'
+  })
   @Length(2, 50)
   lastName: string;
-  @IsString()
+  @IsString({
+    message: 'Passport should be a string'
+  })
   @Length(6, 10)
   passport: string;
-  @IsString()
-  @Length(10, 10)
+  @IsString({
+    message: 'Phonenumber should be a string'
+  })
+  @Length(10, 10, {
+    message: 'Phonenumber should have a length of 10'
+  })
   phoneNumber: string;
-  @IsEmail()
+  @IsEmail({
+    message: 'Correo debe de tener la forma ejemplo@dominio.com'
+  })
   email: string;
 }

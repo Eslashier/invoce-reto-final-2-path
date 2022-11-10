@@ -1,12 +1,12 @@
 import { IsEmail, IsString, Length } from 'class-validator';
-import { CustomerPatchInterface } from '../entities/customer-patch.interface';
+import { CustomerPutInterface } from '../entities/customer-put.interface';
 
-export class CustomerDto implements CustomerPatchInterface {
+export class CustomerDto implements CustomerPutInterface {
   @IsString({
     message: 'Name should be a string'
   })
   @Length(2, 50)
-  name?: string;
+  name: string;
   @IsString({
     message: 'Lastname should be a string'
   })
@@ -16,16 +16,16 @@ export class CustomerDto implements CustomerPatchInterface {
     message: 'Passport should be a string'
   })
   @Length(6, 10)
-  passport?: string;
+  passport: string;
   @IsString({
     message: 'Phonenumber should be a string'
   })
   @Length(10, 10, {
     message: 'Phonenumber should have a length of 10'
   })
-  phoneNumber?: string;
+  phoneNumber: string;
   @IsEmail({
     message: 'Correo debe de tener la forma ejemplo@dominio.com'
   })
-  email?: string;
+  email: string;
 }
