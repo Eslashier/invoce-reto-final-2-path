@@ -2,10 +2,11 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { v4 as uuidGen } from 'uuid';
 import { InvoicePatchDto } from '../dto/invoice-patch.dto';
 import { InvoiceDto } from '../dto/invoice.dto';
-import { Invoice } from '../interfaces/invoice.entity';
+import { InvoiceInterface } from '../interfaces/invoice.entity';
+import { InvoicePutDto } from '../dto/invoice-put.dto';
 @Injectable()
 export class InvoiceService {
-  invoices: Invoice[] = [
+  invoices: InvoiceInterface[] = [
     {
       uuid: uuidGen().toString(),
       customerUuid: uuidGen(),
@@ -53,18 +54,18 @@ export class InvoiceService {
     }
   ];
 
-  getInvoices(): Invoice[] {
+  getInvoices(): InvoiceInterface[] {
     return this.invoices;
   }
-  getInvoice(uuid: string): Invoice | undefined {
+  getInvoice(uuid: string): InvoiceDto | undefined {
     if (this.invoices.find((invoice) => invoice.uuid === uuid)) {
       return this.invoices.find((invoice) => invoice.uuid === uuid);
     }
     throw new NotFoundException('Invoice not found');
   }
 
-  addInvoice(invoice: InvoiceDto): Invoice {
-    let invoiceToCreate = new Invoice();
+  addInvoice(invoice: InvoicePutDto): InvoiceDto {
+    let invoiceToCreate = new InvoiceDto();
     const uuid: string = uuidGen();
     const date: string = new Date().toISOString();
     invoiceToCreate = { uuid, date, ...invoice };
@@ -72,10 +73,10 @@ export class InvoiceService {
     return invoiceToCreate;
   }
 
-  putInvoice(uuid: string, invoice: InvoiceDto): Invoice | undefined {
+  putInvoice(uuid: string, invoice: InvoicePutDto): InvoiceDto | undefined {
     if (this.invoices.find((invoice) => invoice.uuid === uuid)) {
       const index = this.invoices.findIndex((invoice) => invoice.uuid === uuid);
-      let invoiceToUpdate = new Invoice();
+      let invoiceToUpdate = new InvoiceDto();
       invoiceToUpdate = { uuid, ...invoice };
       this.invoices[index] = invoiceToUpdate;
       return this.invoices[index];
@@ -84,7 +85,7 @@ export class InvoiceService {
   }
 
   // eslint-disable-next-line prettier/prettier
-  patchInvoice(uuid: string, invoice: InvoiceDto | InvoicePatchDto): Invoice {
+  patchInvoice(uuid: string, invoice: InvoicePatchDto): InvoiceDto | undefined{
     if (this.invoices.find((invoice) => invoice.uuid === uuid)) {
       const index = this.invoices.findIndex((invoice) => invoice.uuid === uuid);
       const invoiceToUpdate = { ...this.invoices[index], ...invoice };

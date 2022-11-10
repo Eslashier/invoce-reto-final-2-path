@@ -3,7 +3,6 @@ import {
   Controller,
   Delete,
   Get,
-  HttpCode,
   Param,
   Patch,
   Post,
@@ -11,10 +10,10 @@ import {
   UseGuards
 } from '@nestjs/common';
 import { AuthorizationGuard } from 'src/guard/authorization.guard';
-import { InvoicePatchDto } from '../dto/invoice-patch.dto';
 import { InvoiceDto } from '../dto/invoice.dto';
-import { Invoice } from '../interfaces/invoice.entity';
 import { InvoiceService } from '../services/invoice.service';
+import { InvoicePutDto } from '../dto/invoice-put.dto';
+import { InvoicePatchDto } from '../dto/invoice-patch.dto';
 
 @Controller('invoice')
 export class InvoiceController {
@@ -26,27 +25,27 @@ export class InvoiceController {
   }
 
   @Get(`/:uuid`)
-  getInvoice(@Param('uuid') uuid: string): Invoice | undefined {
+  getInvoice(@Param('uuid') uuid: string): InvoiceDto | undefined {
     return this.invoiceService.getInvoice(uuid);
   }
 
   @Post()
   @UseGuards(AuthorizationGuard)
-  addInvoice(@Body() body: InvoiceDto): Invoice {
+  addInvoice(@Body() body: InvoiceDto): InvoicePutDto {
     return this.invoiceService.addInvoice(body);
   }
 
   @Put(`/:uuid`)
   @UseGuards(AuthorizationGuard)
   // eslint-disable-next-line prettier/prettier
-  putInvoice(@Param('uuid') uuid: string, @Body() body: InvoiceDto): Invoice | undefined {
+  putInvoice(@Param('uuid') uuid: string, @Body() body: InvoicePutDto): InvoiceDto | undefined {
     return this.invoiceService.putInvoice(uuid, body);
   }
 
   @Patch(`/:uuid`)
   @UseGuards(AuthorizationGuard)
   // eslint-disable-next-line prettier/prettier
-  patchInvoice(@Param('uuid') uuid: string, @Body() body: InvoicePatchDto): Invoice | undefined {
+  patchInvoice(@Param('uuid') uuid: string, @Body() body: InvoicePatchDto): InvoiceDto | undefined {
     return this.invoiceService.patchInvoice(uuid, body);
   }
 
