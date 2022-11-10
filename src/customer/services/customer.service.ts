@@ -10,7 +10,6 @@ export class CustomerService {
     {
       uuid: '1',
       name: 'Juan Pablo',
-      lastName: 'Montoya',
       passport: '123456789',
       phoneNumber: '3000000000',
       email: 'juan.montoya@gmail.com'

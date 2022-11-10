@@ -3,6 +3,7 @@ import {
   IsArray,
   IsNotEmpty,
   IsNumber,
+  IsOptional,
   IsString,
   IsUUID,
   ValidateNested
@@ -15,6 +16,7 @@ export class InvoicePutDto implements InvoicePutInterface {
   customerUuid: string;
 
   @IsString()
+  @IsOptional()
   date?: string;
 
   @IsArray()

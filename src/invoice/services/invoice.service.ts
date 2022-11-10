@@ -10,7 +10,6 @@ export class InvoiceService {
     {
       uuid: uuidGen().toString(),
       customerUuid: uuidGen(),
-      date: new Date().toISOString(),
       invoiceDetail: [
         {
           uuid: uuidGen().toString(),
